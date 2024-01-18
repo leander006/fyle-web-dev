@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
     <style>
+  
         .flex{
             display: flex;
+        }
+        .user-details-container{
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+  
         }
         .title{
             font-size: x-large;
@@ -14,7 +21,7 @@
             background: rgb(7, 152, 152);
             padding: 10px;
         }
-        #search{
+        #search-input{
             outline: none;
             border-radius: 5px;
             border: none;
@@ -72,30 +79,39 @@
         <nav>
             <div class="flex">
                     <h1 class="col title">GitHub Clone</h1>
-                    <div class="col search"> 
-                        <input type="text" placeholder="Search for valid user" id="search">
-                        <button type="submit">Go</button>
-                    </div>
+                                   <!-- Search Form -->
+                <form id="search-form">
+                    <input type="text" placeholder="Search for valid user" id="search-input" required>
+                    <button type="submit">Go</button>
+                </form>
+
             </div>
         </nav>
-        <main>
-            <div class="flex">
-                <div>
-                    <img class="img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="profile"/></div>
-                <div class="bio">
-                    <h1>Name</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates numquam vitae quas dicta repudiandae est! Maiores odio esse unde animi?</p>
-                    <a class="link" href="">Twitter</a>
+        <header>
+            <div class="container">
+                <div id="user-info" class="user-info">
+                    <!-- User information will be dynamically added here using JavaScript -->
                 </div>
             </div>
-            <a class="link" href="">GitHub.com</a>
-        </main>
+            <div class="github-link"></div>
+        </header>
+        
+
+
         <section class="repositories">
             <div class="container">
                 <h2>Popular Repositories</h2>
+        
                 <ul id="repo-list">
                     <!-- Repository items will be dynamically added here using JavaScript -->
                 </ul>
+        
+                <!-- Pagination Buttons -->
+                <div class="pagination">
+                    <button id="prev-page" disabled>Previous</button>
+                    <span>Page: <span id="current-page">1</span></span>
+                    <button id="next-page">Next</button>
+                </div>
             </div>
         </section>
 
