@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .flex{
+            display: flex;
+        }
+        .title{
+            font-size: x-large;
+            cursor: pointer;
+            color: white;
+        }
+        nav{
+            background: rgb(7, 152, 152);
+            padding: 10px;
+        }
+        #search{
+            outline: none;
+            border-radius: 5px;
+            border: none;
+        }
+        .img{
+            width: 120px;
+            height: 120px;
+            border-radius: 100%;
+        }
+        p{
+            width:40%;
+            word-wrap: normal;
+        }
+        .link{
+            text-decoration: none;
+            color: black;
+        }
+        button{
+            background-color: rgb(5, 66, 66);
+            color: azure;
+            outline: none;
+            border-radius: 15px;
+        }
+        .search{
+            text-align: center;
+        } 
+        .bio{
+            padding-left: 22px;
+        }
+        main{
+            width:max-content;
+            padding-top: 26px;
+            margin: auto;
+            
+        }  
+        
+        .link:hover{
+            outline: none;
+            color: black;
+            text-decoration: none;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+    <div>
+        <nav>
+            <div class="flex">
+                    <h1 class="col title">GitHub Clone</h1>
+                    <div class="col search"> 
+                        <input type="text" placeholder="Search for valid user" id="search">
+                        <button type="submit">Go</button>
+                    </div>
+            </div>
+        </nav>
+        <main>
+            <div class="flex">
+                <div>
+                    <img class="img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="profile"/></div>
+                <div class="bio">
+                    <h1>Name</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates numquam vitae quas dicta repudiandae est! Maiores odio esse unde animi?</p>
+                    <a class="link" href="">Twitter</a>
+                </div>
+            </div>
+            <a class="link" href="">GitHub.com</a>
+        </main>
+        <section class="repositories">
+            <div class="container">
+                <h2>Popular Repositories</h2>
+                <ul id="repo-list">
+                    <!-- Repository items will be dynamically added here using JavaScript -->
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="script.js"></script>
+</html>

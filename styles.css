@@ -1,0 +1,56 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #24292e;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+h1,
+p {
+  margin: 10px 0;
+}
+
+repositories {
+  padding: 40px 0;
+}
+
+h2 {
+  color: #24292e;
+}
+
+#repo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.repo-item {
+  border: 1px solid #e1e4e8;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.repo-item h3 {
+  margin: 0;
+}
+
+.repo-item p {
+  margin: 5px 0;
+}
