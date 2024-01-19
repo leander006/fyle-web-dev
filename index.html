@@ -3,67 +3,7 @@
 <head>
     <style>
   
-        .flex{
-            display: flex;
-        }
-        .user-details-container{
-            display:flex;
-            justify-content: center;
-            flex-direction: column;
-  
-        }
-        .title{
-            font-size: x-large;
-            cursor: pointer;
-            color: white;
-        }
-        nav{
-            background: rgb(7, 152, 152);
-            padding: 10px;
-        }
-        #search-input{
-            outline: none;
-            border-radius: 5px;
-            border: none;
-        }
-        .img{
-            width: 120px;
-            height: 120px;
-            border-radius: 100%;
-        }
-        p{
-            width:40%;
-            word-wrap: normal;
-        }
-        .link{
-            text-decoration: none;
-            color: black;
-        }
-        button{
-            background-color: rgb(5, 66, 66);
-            color: azure;
-            outline: none;
-            border-radius: 15px;
-        }
-        .search{
-            text-align: center;
-        } 
-        .bio{
-            padding-left: 22px;
-        }
-        main{
-            width:max-content;
-            padding-top: 26px;
-            margin: auto;
-            
-        }  
         
-        .link:hover{
-            outline: none;
-            color: black;
-            text-decoration: none;
-        }
-
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +15,7 @@
 </head>
 <body>
 
-    <div>
+
         <nav>
             <div class="flex">
                     <h1 class="col title">GitHub Clone</h1>
@@ -96,26 +36,22 @@
             <div class="github-link"></div>
         </header>
         
-
-
         <section class="repositories">
-            <div class="container">
-                <h2>Popular Repositories</h2>
-        
-                <ul id="repo-list">
+            <div class="container" id="repo-container">
+                <ul id="repo-list" class="repo-container">
                     <!-- Repository items will be dynamically added here using JavaScript -->
                 </ul>
-        
-                <!-- Pagination Buttons -->
-                <div class="pagination">
-                    <button id="prev-page" disabled>Previous</button>
-                    <span>Page: <span id="current-page">1</span></span>
-                    <button id="next-page">Next</button>
-                </div>
             </div>
+            
         </section>
 
-    </div>
+        <!-- Pagination Buttons -->
+        <div class="pagination-container">
+            <button id="prev-page" class="pagination-button">Newer</button>
+            <div id="page-numbers" class="pagination-numbers"></div>
+            <button id="next-page" class="pagination-button">Older</button>
+        </div>
+    <!-- </div> -->
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

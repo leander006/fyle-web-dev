@@ -4,16 +4,77 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+.flex {
+  display: flex;
+}
 
+.user-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  font-size: x-large;
+  cursor: pointer;
+  color: white;
+}
+nav {
+  background: rgb(7, 152, 152);
+  padding: 10px;
+}
+#search-input {
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+.img {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+}
+p {
+  width: 40%;
+  word-wrap: normal;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+button {
+  background-color: rgb(5, 66, 66);
+  color: azure;
+  outline: none;
+  border-radius: 15px;
+}
+.search {
+  text-align: center;
+}
+.bio {
+  padding-left: 22px;
+}
+main {
+  width: max-content;
+  padding-top: 26px;
+  margin: auto;
+}
+
+.link:hover {
+  outline: none;
+  color: black;
+  text-decoration: none;
+}
 
 .profile {
   display: flex;
 }
 .user-info {
   display: flex;
-  align-item:center
+  align-item: center;
 }
 
+.language-list {
+  display: flex;
+}
 header {
   /* color: #fff; */
   padding: 20px 0;
@@ -30,24 +91,21 @@ h1,
 p {
   margin: 10px 0;
 }
-
-repositories {
-  padding: 40px 0;
-}
-
-h2 {
-  color: #24292e;
-}
-
-#repo-list {
+.repo-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Display two columns */
+  gap: 20px;
   list-style: none;
-  padding: 0;
+  max-height: 1400px; /* Set a fixed height to limit to 2 rows */
+  overflow: hidden; /* Hide any overflow beyond the specified height */
 }
 
 .repo-item {
   border: 1px solid #e1e4e8;
-  margin-bottom: 10px;
-  padding: 10px;
+  padding: 20px;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .repo-item h3 {
@@ -55,5 +113,63 @@ h2 {
 }
 
 .repo-item p {
-  margin: 5px 0;
+  margin: 10px 0 0;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-box {
+  background-color: #007bff; /* Blue background color */
+  color: #fff; /* White text color */
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hidden-skill {
+  display: none;
+}
+
+.show-more-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.expanded .hidden-skill {
+  display: inline-block;
+}
+
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  margin-top: 20px;
+}
+
+.pagination-numbers {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+.page-number-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.current-page {
+  background-color: #0056b3;
 }

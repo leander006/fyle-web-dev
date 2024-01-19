@@ -44,14 +44,57 @@ $(document).ready(function () {
     const apiUrl = `https://api.github.com/users/${username}/repos?sort=stars&per_page=${reposPerPage}&page=${page}`;
 
     $.get(apiUrl, function (data, status, xhr) {
-      repoList.empty(); // Clear previous results
-      console.log(data);
+      repoList.empty();
       data.forEach(function (repo) {
         const repoItem = $('<li class="repo-item"></li>');
         repoItem.append(
-          `<h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>`
+          `<h3><a class="link" href="${repo.html_url}" target="_blank">${repo.name}</a></h3>`
         );
-        repoItem.append(`<p>${repo.description}</p>`);
+        if (repo.description) {
+          repoItem.append(`<p>${repo.description}</p>`);
+        }
+
+        // Check if languages information is available
+        if (repo.languages_url) {
+          $.get(repo.languages_url, function (languages) {
+            const languageList = Object.keys(languages);
+            if (languageList.length > 0) {
+              // Create a div for skills and append it to the repoItem
+              const skillsContainer = $('<div class="skills-container"></div>');
+
+              // Append each skill in a box
+              languageList.forEach(function (language, index) {
+                const skillBox = $(`<div class="skill-box">${language}</div>`);
+                skillsContainer.append(skillBox);
+
+                // If more than 3 skills, add a class for styling
+                if (index >= 2) {
+                  skillBox.addClass("hidden-skill");
+                }
+              });
+
+              // Add a show more/less button if there are more than 3 skills
+              if (languageList.length > 2) {
+                const showMoreButton = $(
+                  '<div class="show-more-button">Show More</div>'
+                );
+                skillsContainer.append(showMoreButton);
+
+                showMoreButton.click(function () {
+                  skillsContainer.toggleClass("expanded");
+                  showMoreButton.text(
+                    skillsContainer.hasClass("expanded")
+                      ? "Show Less"
+                      : "Show More"
+                  );
+                });
+              }
+
+              repoItem.append(skillsContainer);
+            }
+          });
+        }
+
         repoList.append(repoItem);
       });
 
@@ -81,6 +124,30 @@ $(document).ready(function () {
   $("#search-input").click(function () {
     $(this).val("");
   });
+
+  function updatePaginationButtons(hasNextPage, hasPrevPage) {
+    $("#next-page").prop("disabled", !hasNextPage);
+    $("#prev-page").prop("disabled", !hasPrevPage);
+  }
+
+  function updatePagination(page, totalPages) {
+    $("#page-numbers").empty();
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageNumberButton = $(
+        `<button class="page-number-button">${i}</button>`
+      );
+      pageNumberButton.click(function () {
+        currentPage = i;
+        const username = $("#search-input").val() || defaultUsername;
+        fetchRepositories(username, currentPage);
+      });
+      $("#page-numbers").append(pageNumberButton);
+    }
+
+    // Highlight the current page
+    $(`#page-numbers button:contains('${page}')`).addClass("current-page");
+  }
 
   // Event listener for the "Next" button
   $("#next-page").click(function () {
