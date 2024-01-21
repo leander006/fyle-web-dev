@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <style>
-  
-        
+
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,40 +15,41 @@
 <body>
 
 
-        <nav>
-            <div class="flex">
-                    <h1 class="col title">GitHub Clone</h1>
-                                   <!-- Search Form -->
-                <form id="search-form">
-                    <input type="text" placeholder="Search for valid user" id="search-input" required>
-                    <button type="submit">Go</button>
-                </form>
+    <header class="navbar">
+          <h1 class="github">GitHub Clone</h1>
+          <div class="search-bar">
+            <input type="text" id="username-input" placeholder="Enter GitHub username">
+            <button id="search-btn">Search</button>
+          </div>
+      </header>
+      <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
 
-            </div>
-        </nav>
-        <header>
-            <div class="container">
+
+
+        <!-- <header> -->
+            <div class="user">
                 <div id="user-info" class="user-info">
-                    <!-- User information will be dynamically added here using JavaScript -->
+     
                 </div>
+                <div class="github-link"></div>
             </div>
-            <div class="github-link"></div>
-        </header>
+        <!-- </header> -->
+        
         
         <section class="repositories">
-            <div class="container" id="repo-container">
                 <ul id="repo-list" class="repo-container">
                     <!-- Repository items will be dynamically added here using JavaScript -->
                 </ul>
-            </div>
             
         </section>
 
         <!-- Pagination Buttons -->
         <div class="pagination-container">
-            <button id="prev-page" class="pagination-button">Newer</button>
+            <button id="prev-page" class="pagination-button">Older</button>
             <div id="page-numbers" class="pagination-numbers"></div>
-            <button id="next-page" class="pagination-button">Older</button>
+            <button id="next-page" class="pagination-button">Newer</button>
         </div>
     <!-- </div> -->
 </body>
